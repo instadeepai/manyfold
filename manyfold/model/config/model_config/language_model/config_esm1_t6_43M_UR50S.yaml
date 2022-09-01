@@ -1,0 +1,53 @@
+defaults:
+  - config
+
+model_name: "esm1_t6_43M_UR50S"
+model:
+  add_bias_kv: True
+  attention_heads: 12
+  embed_dim: 768
+  ffn_embed_dim: 3072
+  num_layers: 6
+  alphabet_size: 35
+  model_type: 'esm-1'
+  tokens: [
+    '<null_0>',
+    '<pad>',
+    '<eos>',
+    '<unk>',
+    'L',
+    'A',
+    'G',
+    'V',
+    'S',
+    'E',
+    'R',
+    'T',
+    'I',
+    'D',
+    'P',
+    'K',
+    'Q',
+    'N',
+    'F',
+    'Y',
+    'M',
+    'H',
+    'W',
+    'C',
+    'X',
+    'B',
+    'U',
+    'Z',
+    'O',
+    '.',
+    '-',
+    '<null_1>',
+    '<cls>',
+    '<mask>',
+    '<sep>']
+  embed_scale: 27.712812921102035
+  token_dropout: False
+  emb_layer_norm_before: False
+  learned_positional_embedding: False
+  roberta_lm_head: False

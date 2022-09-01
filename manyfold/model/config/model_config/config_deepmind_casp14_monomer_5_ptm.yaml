@@ -1,0 +1,10 @@
+defaults:
+  - alphafold_config
+
+# Model fine-tuned from model "deepmind-casp14_monomer_5" model
+# with an additional predicted_aligned_error head that can produce
+# predicted TM-score (pTM) and predicted aligned errors.
+model:
+  heads:
+    predicted_aligned_error:
+      weight: 0.1

@@ -1,0 +1,21 @@
+defaults:
+  - model_config: plmfold_config
+  - _self_
+
+args:
+  data_dir_train: 'datasets/samples_train' # Data directory where the training samples can be fetched from.
+  data_dir_val: 'datasets/samples_cameo' # Data directory where the validation samples can be fetched from.
+  fasta_path_train: 'datasets/sequences_train.fasta' # Path to fasta file containing all input sequences for training.
+  fasta_path_val: 'datasets/sequences_cameo.fasta' # Path to fasta file containing all input sequences for validation.
+  checkpoint_dir: 'experiments/checkpoints/plmfold' # Checkpoint directory.
+  continue_from_last_checkpoint: true # Continue from last checkpoint.
+  pretrained_models_dir: 'params/plmfold' # Directory for the pretrained models.
+  pretrained_model: null # Name of pretrained model to initialise to (null <--> train new model).
+  crop_size: 256
+  batch_size: 64 # Effective batch size.
+  max_batch_size_per_device: 1 # Max batch size for each forward/backward per device.
+
+  # pLMFold specific args (model_config.model.global_config.plmfold_mode = True)
+  load_pretrained_language_model: true
+  crop_size_plm: 1024
+  force_uniform_crop_plm: true

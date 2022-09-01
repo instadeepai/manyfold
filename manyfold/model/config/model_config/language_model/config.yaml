@@ -1,0 +1,4 @@
+pretrained_model_dir: 'params/esm'
+
+return_all_embeddings: false
+return_all_attention_weights: false

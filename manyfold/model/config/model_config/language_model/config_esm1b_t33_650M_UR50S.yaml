@@ -1,0 +1,52 @@
+defaults:
+  - config
+
+model_name: "esm1b_t33_650M_UR50S"
+
+model:
+  add_bias_kv: False
+  attention_heads: 20
+  embed_dim: 1280
+  ffn_embed_dim: 5120
+  num_layers: 33
+  alphabet_size: 33
+  model_type: 'esm-1b'
+  tokens: [
+    '<cls>',
+    '<pad>',
+    '<eos>',
+    '<unk>',
+    'L',
+    'A',
+    'G',
+    'V',
+    'S',
+    'E',
+    'R',
+    'T',
+    'I',
+    'D',
+    'P',
+    'K',
+    'Q',
+    'N',
+    'F',
+    'Y',
+    'M',
+    'H',
+    'W',
+    'C',
+    'X',
+    'B',
+    'U',
+    'Z',
+    'O',
+    '.',
+    '-',
+    '<null_1>',
+    '<mask>']
+  embed_scale: 1
+  token_dropout: True
+  emb_layer_norm_before: True
+  learned_positional_embedding: True
+  roberta_lm_head: True

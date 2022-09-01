@@ -1,0 +1,35 @@
+defaults:
+  - shared_config
+
+data:
+  common:
+    masked_msa: {
+      profile_prob: 0.1,
+      same_prob: 0.1,
+      uniform_prob: 0.1
+    }
+    max_extra_msa: 1024
+    msa_cluster_features: true
+    reduce_msa_clusters_by_max_templates: false
+    resample_msa_in_recycling: true #has to be equal to model_config.model.resample_msa_in_recycling
+  eval:
+    masked_msa_replace_fraction: 0.15
+    max_msa_clusters: 512
+  train:
+    # Overwrites "eval" defaults if is_training=True.
+    msa_block_delete: {
+      # For Alg 1 in SM.
+      msa_fraction_per_block: 0.3, # Alg 1, line 1.
+      num_blocks: 5, # Alg 1, line 3.
+      randomize_num_blocks: false # Alg 1, line 3.
+    }
+
+model:
+  global_config: {
+    deterministic: false,
+    plmfold_mode: false,
+    subbatch_size: 4,
+    use_remat: false,
+    zero_init: false,
+  }
+  resample_msa_in_recycling: ${..data.common.resample_msa_in_recycling}

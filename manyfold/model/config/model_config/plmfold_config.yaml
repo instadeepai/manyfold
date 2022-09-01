@@ -1,0 +1,76 @@
+defaults:
+  - shared_config
+  - language_model: config_esm1b_t33_650M_UR50S
+
+language_model:
+  return_all_embeddings: true
+  return_all_attention_weights: true
+
+data:
+  common:
+    crop_size_plm: -1
+  eval:
+    feat:
+      aatype_plm: [num residues pLM placeholder]
+      random_crop_to_size_seed_plm: [null]
+      residue_index_plm: [num residues pLM placeholder]
+      seq_mask_plm: [num residues pLM placeholder]
+    force_uniform_crop_plm: true
+
+model:
+  embeddings_and_evoformer:
+    use_weighted_embeddings_for_single_channel: true
+    use_out_plm_attention_for_pair_init: true # If true, language_model.return_all_attention_weights = True.
+    evoformer:
+      msa_transition: {
+        num_intermediate_factor: 2,
+      }
+      outer_stack_mean: {
+        dropout_rate: 0.0,
+        first: true,
+        num_outer_channel: 128,
+        orientation: per_row,
+        shared_dropout: true,
+      }
+      pair_transition: {
+        num_intermediate_factor: 4,
+      }
+      no_triangle_attention: true # Ablation of triangle attention.
+    evoformer_num_block: 48
+    single_channel: 256
+    pair_channel: 128
+    recycle_features: true
+    recycle_pos: true
+  global_config: {
+    deterministic: false,
+    plmfold_mode: true,
+    subbatch_size: 4,
+    use_remat: true,
+    train_language_model: false,
+    zero_init: false,
+  }
+  heads:
+    distogram: {
+      weight: 0.3,
+    }
+    experimentally_resolved: {
+      weight: 0.0,
+    }
+    masked_msa: {
+      weight: 0.0,
+    }
+    predicted_aligned_error: {
+      weight: 0.0
+    }
+    predicted_lddt: {
+      weight: 0.01
+    }
+    structure_module:
+      angle_norm_weight: 0.01
+      chi_weight: 0.5
+      num_layer: 8
+      sidechain: {
+        weight_frac: 0.5
+      }
+      structural_violation_loss_weight: 0.0
+      weight: 1.0

@@ -1,0 +1,17 @@
+defaults:
+  - model_config: plmfold_config
+  - _self_
+
+args:
+  data_dir: 'datasets/samples_cameo' # Data directory where the samples can be fetched from.
+  results_dir: 'experiments/results_cameo/plmfold' # Results directory where the output results are stored.
+  fasta_path: 'datasets/sequences_cameo.fasta' # Path to fasta file containing all input sequences to evaluate.
+  filter_min_length: 1 # Minimum sequence length to filter sequences in the input fasta.
+  filter_max_length: 999999 # Maximum sequence length to filter sequences in the input fasta.
+  model_name: 'model_plmfold' # Name of the trained model to evaluate.
+  params_dir: 'params/plmfold' # Parameters directory.
+  num_devices: 1 # Number of devices to use to run the computations.
+  batch_size: 1 # Batch size per device.
+  max_batches: -1 # Maximum number of batches to validate (default=all).
+  seed_value: null # Set random seed.
+  use_relaxed_predictions: false # If True, applies post-relaxation to the predicted structure.

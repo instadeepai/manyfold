@@ -1,0 +1,7 @@
+defaults:
+  - alphafold_config
+
+# Jumper et al. (2021) Suppl. Table 5, Model 1.2.1
+data:
+  common:
+    max_extra_msa: 5120
