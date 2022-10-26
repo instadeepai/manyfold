@@ -2,7 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.8-blue.svg)](https://docs.python.org/3.8/library/index.html)
 [![Jax Version](https://img.shields.io/badge/jax-0.3.14-informational)](https://jax.readthedocs.io/en/latest/)
-[![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![license](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-blue.svg)](LICENSE)
 
 An efficient and flexible library in Jax for distributed training and batched validation of protein folding models.
 
