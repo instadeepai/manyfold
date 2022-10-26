@@ -22,7 +22,7 @@ setup(
     "AlphaFold and pLMFold protein folding models.",
     author="InstaDeep",
     author_email="<>",
-    license="Apache License, Version 2.0",
+    license="Creative Commons BY-NC-SA 4.0 License",
     url="<>",
     packages=find_packages(),
     install_requires=[],
@@ -30,7 +30,6 @@ setup(
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: Apache Software License",
         "Operating System :: POSIX :: Linux",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
