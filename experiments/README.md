@@ -184,3 +184,31 @@ experiments/results_cameo/
             |- 7ER0_A/
             ...
 ```
+
+## pLMFold inference
+
+To run inference on the pLMFold model for the set of CAMEO sequences in a FASTA file:
+
+```bash
+python experiments/inference_plmfold.py \
+    -f datasets/sequences_cameo.fasta \
+    -o experiments/inference_results
+```
+
+The predicted structures are written in PDB format to `experiments/inference_results` by default. Note that custom FASTA files can be used instead. These can be created from PDB entries as:
+
+```bash
+curl https://www.rcsb.org/fasta/entry/7ZZ5 \
+    -o datasets/input_sequences.fasta
+```
+
+## Timing/memory estimations
+
+- Training step timings: ~3.5 secs for pLMFold (on TPUs v2-128) and ~14 secs for AlphaFold `model_1_ptm` (on TPUs v3-8).
+- Validation timings (using `.tfrecords`) for different input sequence lengths on the CAMEO dataset:
+
+<p align="center">
+    <img src="../imgs/inference_times.png" width="400">
+</p>
+
+In terms of memory, the pLMFold model allows inference on sequences of up to 2400 residues using an A100 GPU (40GB).
