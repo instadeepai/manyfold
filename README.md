@@ -32,7 +32,6 @@ cd manyfold
 2. Download data for training and inference (see [`datasets/README.md`](datasets/README.md) for a description of the datasets):
 
 ```bash
-mkdir -p datasets
 curl -fsSL https://storage.googleapis.com/manyfold-data/datasets.tar | tar x -C datasets/
 ```
 
@@ -54,9 +53,13 @@ for i in 1 2; do
 done
 ```
 
-The easiest way to run ManyFold is using the docker files provided in the `docker` folder. For a detailed explanation on how to run experiments, please refer to [`experiments/README.md`](experiments/README.md). This involves two main steps:
+The easiest way to run ManyFold is using the docker files provided in the `docker` folder. You will need a machine running Linux.
+- Install [Docker](https://www.docker.com/).
+- Install [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) for GPU support.
 
-- Build the docker image and run the docker contaienr.
+For a detailed explanation on how to run experiments, please refer to [`experiments/README.md`](experiments/README.md). This involves two main steps:
+
+- Build the docker image and run the docker container.
 - Launch training runs or validation inference.
 
 ## Acknowledgements

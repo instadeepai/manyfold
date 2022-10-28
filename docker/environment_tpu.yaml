@@ -28,6 +28,7 @@ dependencies:
       - numpy==1.19.5
       - omegaconf==2.2.1
       - optax==0.0.9
+      - protobuf==3.20.*
       - psutil==5.8.0
       - regex==2022.1.18
       - scipy==1.7.0

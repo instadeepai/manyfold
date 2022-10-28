@@ -19,7 +19,6 @@ import numpy as np
 
 from manyfold.common import residue_constants
 from manyfold.common.protein import from_pdb_string, from_prediction, to_pdb
-from manyfold.relax import relax
 
 
 def save_predicted_pdb(
@@ -68,6 +67,7 @@ def run_relaxation_pdb(output_dir: str) -> Dict[str, np.ndarray]:
     Returns: a dictionary containing the atom positions and mask for the predicted
       structure after relaxation.
     """
+    from manyfold.relax import relax
 
     # Load predicted structure.
     filepath_prediction = os.path.join(output_dir, "prediction.pdb")
