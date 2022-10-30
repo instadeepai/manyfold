@@ -204,8 +204,9 @@ curl https://www.rcsb.org/fasta/entry/7ZZ5 \
 
 ## Timing/memory estimations
 
-- Training step timings: ~3.5 secs for pLMFold (on TPUs v2-128) and ~14 secs for AlphaFold `model_1_ptm` (on TPUs v3-8).
-- Validation timings (using `.tfrecords`) for different input sequence lengths on the CAMEO dataset:
+Training with 1 sample per TPU core needs a v2 (with 8GB of memory per core) for pLMFold and takes ~3.5 sec/step, compared to a v3 (16GB per core) and ~14 sec/step for AlphaFold.
+
+The following plot shows the validation times (using `.tfrecords`) for different input sequence lengths on the CAMEO dataset:
 
 <p align="center">
     <img src="../imgs/inference_times.png" width="400">
