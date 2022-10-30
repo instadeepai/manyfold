@@ -66,12 +66,15 @@ RUN patch -p0 < /root/openmm.patch
 
 RUN mkdir /app
 WORKDIR /root
+COPY . /app
+WORKDIR /app
+RUN pip install --user -e ./
+
 ARG USER_ID=1000
 ARG GROUP_ID=1000
 RUN groupadd --gid ${GROUP_ID} eng
 RUN useradd -l --gid eng --uid ${USER_ID} --shell /bin/bash --home-dir /app eng
 RUN chown -R eng /app
-WORKDIR /app
 
 USER eng
 RUN echo 'export PATH=/opt/conda/bin:$PATH' >> .bashrc
@@ -80,6 +83,3 @@ RUN echo 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64/' >> .bashrc
 RUN echo 'source /opt/conda/etc/profile.d/conda.sh' >> .bashrc
 RUN echo "alias ls='ls --color=auto'" >> .bashrc
 RUN echo "export TF_FORCE_UNIFIED_MEMORY=1" >> .bashrc
-
-COPY . /app
-RUN pip install --user -e ./
