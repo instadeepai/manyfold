@@ -1,8 +1,6 @@
 # Training and inference
 
-## Build/pull the docker image on GPU/TPU
-
-Option 1: **build**
+## Build the docker image on GPU/TPU
 
 First, build the docker image for the user, which will install all dependencies needed to run the experiments.
 
@@ -16,25 +14,6 @@ sudo docker build -t manyfold \
 sudo docker build -t manyfold \
     --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) \
     -f docker/tpu.Dockerfile .
-```
-
-Option 2: **pull**
-
-Pulling guarantees the versions of packages in the environment.
-
-```bash
-# GPU
-sudo docker pull us-docker.pkg.dev/research-deepfolding-gcp/manyfold/manyfold:1.0
-sudo docker tag us-docker.pkg.dev/research-deepfolding-gcp/manyfold/manyfold:1.0 manyfold
-# We must build to give the user the appropriate permissions.
-# (Everything is cached so it is fast.)
-sudo docker build -t manyfold \
-    --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) \
-    -f docker/cuda.Dockerfile .
-
-# TPU
-sudo docker pull us-docker.pkg.dev/research-deepfolding-gcp/manyfold/manyfold-tpu:1.0
-sudo docker tag us-docker.pkg.dev/research-deepfolding-gcp/manyfold/manyfold-tpu:1.0 manyfold
 ```
 
 ## Run the container
