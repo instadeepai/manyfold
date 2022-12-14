@@ -68,13 +68,14 @@ This research has been supported with TPUs from Google's TPU Research Cloud (TRC
 
 ## Citing ManyFold
 
-If you find this repository useful in your work, please add the following citation:
+If you find this repository useful in your work, please add the following citation to our [associated paper in Bioinformatics](https://doi.org/10.1093/bioinformatics/btac773):
 
 ```bibtex
 @software{manyfold2022github,
-  author = {Amelia Villegas-Morcillo and Louis Robinson and Arthur Flajolet and Thomas D. Barrett},
+  author = {Villegas-Morcillo, Amelia and Robinson, Louis and Flajolet, Arthur and Barrett, Thomas D},
   title = {{ManyFold}: An efficient and flexible library for training and validating protein folding models},
+  journal = {Bioinformatics},
   year = {2022},
-  url = {https://github.com/instadeepai/manyfold},
+  url = {https://doi.org/10.1093/bioinformatics/btac773},
 }
 ```
